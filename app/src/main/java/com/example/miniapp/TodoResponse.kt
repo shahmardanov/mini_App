@@ -1,6 +1,6 @@
 package com.example.miniapp
 
 
-class TodoResponse :
+class TodoResponse<T> :
     ArrayList<Model>()
 

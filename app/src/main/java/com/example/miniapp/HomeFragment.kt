@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.miniapp.databinding.FragmentHomeBinding
 
 
@@ -34,6 +35,13 @@ class HomeFragment : Fragment() {
         observeData()
         binding.rvHome.adapter = todoAdapter
         viewModel.getData()
+        todoAdapter.NavigateToDetail = {
+            findNavController().navigate(
+                HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+                    it
+                )
+            )
+        }
 
 
     }

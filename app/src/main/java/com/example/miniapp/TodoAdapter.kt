@@ -8,6 +8,7 @@ import com.example.miniapp.databinding.ItemTodoBinding
 class TodoAdapter : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
 
     private val todoList = arrayListOf<Model>()
+    lateinit var NavigateToDetail: (id: Int) -> Unit
 
     inner class TodoViewHolder(val itemTodoBinging: ItemTodoBinding) :
         RecyclerView.ViewHolder(itemTodoBinging.root)
@@ -28,6 +29,10 @@ class TodoAdapter : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
         val adapter = ImageAdapter()
         adapter.updateMyList(item.images)
         holder.itemTodoBinging.imageViewphoto.setImageUrl(item.images[0])
+
+        holder.itemTodoBinging.root.setOnClickListener {
+            NavigateToDetail(item.id)
+        }
     }
 
     fun updateList(newList: List<Model>) {

@@ -6,7 +6,7 @@ class TodoRepository {
 
     private val api = RetrofitClient.api
 
-    suspend fun getTodoApi(): Response<TodoResponse> {
+    suspend fun getTodoApi(): Response<TodoResponse<Any?>> {
         return api.getTodoApi()
     }
 }
